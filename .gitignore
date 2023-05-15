@@ -1,0 +1,9 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# Angular- modules
+/angularProj/node_modules
+# /angularProj/package.json
+/angularProj/package-lock.json
+
+
+# React - modules
