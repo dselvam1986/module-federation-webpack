@@ -47,10 +47,11 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'react_app',
+      name: 'remote_app',
+      library: {type: 'var', name: 'remote_app'},
       filename: 'remoteEntry.js',
-      exposes: { './App': './src/App'},
-     shared: {
+      exposes: { './UserButton': './src/UserButton'},
+      shared: {
         react: {
           singleton: true,
           requiredVersion: deps.react,

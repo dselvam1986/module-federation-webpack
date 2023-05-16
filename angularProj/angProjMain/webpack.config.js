@@ -19,10 +19,9 @@ module.exports = {
     },
     plugins: [
       new container.ModuleFederationPlugin({
-        name: 'profile',
-        filename: 'remoteEntry.js',
+        name: 'angProj',
         remotes: {
-          list_user: `react_app@http://localhost:3002/remoteEntry.js`,
+          remote_app: `remote_app@http://localhost:3002/remoteEntry.js`,
         },
         shared: {
           react: {

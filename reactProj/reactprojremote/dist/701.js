@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkreactprojremote=self.webpackChunkreactprojremote||[]).push([[701],{701:function(e,t,n){n.r(t),n.d(t,{UserButton:function(){return o}});var r=n(416),c=n.n(r);const o=()=>c().createElement("div",null,c().createElement("button",{onClick:()=>{console.log("React function triggered")}},"Fire Event "))}}]);

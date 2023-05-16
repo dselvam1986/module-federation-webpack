@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angProjMain": {
+    "angprojremote": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -18,12 +18,9 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-builders/custom-webpack:browser",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "customWebpackConfig": {
-              "path": "./webpack.config.js"
-            },
-            "outputPath": "dist/ang-proj-main",
+            "outputPath": "dist/angprojremote",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -67,14 +64,7 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
-            },
-            "moduleFederation": {
-              "outputPath": "dist/angProjMain",
-              "vendorChunk": false,
-              "buildOptimizer": false,
-              "optimization": false
-            },
-            "budgets": {}
+            }
           },
           "defaultConfiguration": "production"
         },
@@ -82,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "angProjMain:build:production"
+              "browserTarget": "angprojremote:build:production"
             },
             "development": {
-              "browserTarget": "angProjMain:build:development"
+              "browserTarget": "angprojremote:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -93,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angProjMain:build"
+            "browserTarget": "angprojremote:build"
           }
         },
         "test": {
@@ -117,5 +107,5 @@
       }
     }
   },
-  "defaultProject": "angProjMain"
+  "defaultProject": "angprojremote"
 }
