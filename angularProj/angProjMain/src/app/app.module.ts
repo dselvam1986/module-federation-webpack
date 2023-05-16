@@ -6,11 +6,15 @@ import { AppComponent } from './app.component';
 
 import { ReactAppComponent } from './reactApp/reactApp.component';
 
+//Add remote angular component directly to module.ts
+import('angRemote/HeaderComponent').then((module) => {
+ const RemoteHeaderComponent = module.default;
 
-@NgModule({
+ @NgModule({
   declarations: [
     AppComponent,
-    ReactAppComponent
+    ReactAppComponent,
+    RemoteHeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -25,4 +29,7 @@ import { ReactAppComponent } from './reactApp/reactApp.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+class AppModule { }
+
+})
+

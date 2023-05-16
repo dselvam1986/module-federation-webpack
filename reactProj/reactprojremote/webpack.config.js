@@ -5,7 +5,7 @@ module.exports = {
   entry: './src/index',
   mode: 'development',
   devServer: {
-    port: 3002,
+    port: 4203,
     headers: {
       "Access-Control-Allow-Origin": "*"
     },

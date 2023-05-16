@@ -21,7 +21,8 @@ module.exports = {
       new container.ModuleFederationPlugin({
         name: 'angProj',
         remotes: {
-          remote_app: `remote_app@http://localhost:3002/remoteEntry.js`,
+          angular_app: `angRemote@http://localhost:4202/remoteEntry.js`,
+          remote_app: `remote_app@http://localhost:4203/remoteEntry.js`,
         },
         shared: {
           react: {
