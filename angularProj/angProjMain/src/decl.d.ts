@@ -1,2 +1,2 @@
 declare module 'remote_app/*';
-declare module 'angRemote/*';
+declare module 'angular_app/*';

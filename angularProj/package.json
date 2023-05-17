@@ -8,8 +8,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "ng" : "ng"
+    "ng": "ng"
   },
   "author": "Dinesh",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@angular-architects/module-federation": "^16.0.3"
+  }
 }

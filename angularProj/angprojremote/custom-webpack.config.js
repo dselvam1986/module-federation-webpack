@@ -1,3 +1,5 @@
+const container = require('webpack').container;
+
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const mf = require("@angular-architects/module-federation/webpack");
 const path = require("path");
@@ -10,49 +12,46 @@ sharedMappings.register(
 
 module.exports = {
   output: {
-    publicPath: 'http://localhost:4200/',
-    uniqueName: "angProjMain",
+    uniqueName: 'angRemote',
+    scriptType: 'text/javascript',
+    publicPath: 'http://localhost:4201/',
   },
   optimization: {
     runtimeChunk: false
+  },
+  devServer: {
+    port: 4201,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    },
+    hot: true,
   },   
   resolve: {
     alias: {
       ...sharedMappings.getAliases(),
     }
   },
-  devServer: {
-    port: 4200,
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-    },
-    hot: false
-  },
   plugins: [
     new ModuleFederationPlugin({
       
         // For remotes (please adjust)
-        // name: "angProjMain",
-        // filename: "remoteEntry.js",
-        // exposes: {
-        //     './Component': './/src/app/app.component.ts',
-        // },        
-        
+        name: "angprojremote",
+        filename: "remoteEntry.js",
+        exposes: {
+          './MFE': './src/app/mfe/mfe.module.ts',
+        },        
+
         // For hosts (please adjust)
-        name: 'angProjMain',
-        remotes: {
-            angular_app: `MFE@http://localhost:4201/remoteEntry.js`,
-            remote_app: `remote_app@http://localhost:4203/remoteEntry.js`,
-        },
+        // remotes: {
+        //     "mfe1": "mfe1@http://localhost:3000/remoteEntry.js",
+
+        // },
 
         shared: share({
           "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
           "@angular/common": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
           "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
           "@angular/router": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-          "react": { singleton: true, strictVersion: true },
-          "react-dom": { singleton: true, strictVersion: true },
-
 
           ...sharedMappings.getDescriptors()
         })

@@ -1,35 +1,24 @@
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { ComponentRef, Injector, NgModule,  } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { ReactAppComponent } from './reactApp/reactApp.component';
+import { MainModule } from './main/main.module';
 
-//Add remote angular component directly to module.ts
-import('angRemote/HeaderComponent').then((module) => {
- const RemoteHeaderComponent = module.default;
 
- @NgModule({
+@NgModule({
   declarations: [
     AppComponent,
     ReactAppComponent,
-    RemoteHeaderComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MainModule
   ],
   providers: [
-    // {
-    //   provide: APP_INITIALIZER,
-    //   useFactory: loadRemoteEntry,
-    //   multi: true
-    // }
   ],
   bootstrap: [AppComponent]
 })
-class AppModule { }
-
-})
-
+export class AppModule {}

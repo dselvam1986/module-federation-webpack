@@ -1,9 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { WrapperComponent } from './wrapper/wrapper.component';
+import { ContentComponent } from './content/content.component';
 
 const routes: Routes = [
-  {path: '', component: WrapperComponent}
+  {
+		path: '',component: ContentComponent
+	},
+  {
+		path: 'mfe',
+		loadChildren: () => import('./mfe/mfe.module').then(m => m.MfeModule),
+	}
 ];
 
 @NgModule({

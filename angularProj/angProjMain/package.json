@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build:mf": "ng build --configuration moduleFederation --output-hashing none --single-bundle true --vendor-chunk false --extract-licenses false --delete-output-path false --stats-json false --extra-webpack-config webpack.config.js"
+    "build:mf": "ng build --configuration moduleFederation --output-hashing none --single-bundle true --vendor-chunk false --extract-licenses false --delete-output-path false --stats-json false --extra-webpack-config webpack.config.js",
+    "run:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js"
   },
   "private": true,
   "dependencies": {
@@ -23,7 +24,9 @@
     "@ngxs/store": "^3.7.5",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "bootstrap": "^5.2.3",
+    "@popperjs/core": "2.11.7"
   },
   "devDependencies": {
     "@angular-builders/custom-webpack": "^13.1.0",

@@ -9,7 +9,7 @@ module.exports = {
     headers: {
       "Access-Control-Allow-Origin": "*"
     },
-    hot: true
+    hot: false
   },
   resolve: {
     extensions: ['.js', '.tsx', '.ts'],
