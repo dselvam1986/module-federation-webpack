@@ -5,3 +5,13 @@
     "eject": "react-scripts eject",
     
   }
+
+  // angular remote
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve --webpack-config webpack.config.js",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+  },
+  
