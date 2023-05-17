@@ -69,11 +69,11 @@
 							"namedChunks": true
 						},
 						"moduleFederation": {
-							"outputPath": "dist/angProjMain",
+							"outputPath": "dist/angprojremote",
 							"vendorChunk": false,
 							"buildOptimizer": false,
 							"optimization": false
-						},
+						}
 					},
 					"defaultConfiguration": "production"
 				},
