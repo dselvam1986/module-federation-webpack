@@ -41,8 +41,8 @@ module.exports = {
         // For hosts (please adjust)
         name: 'angProjMain',
         remotes: {
-            angular_app: `MFE@http://localhost:4201/remoteEntry.js`,
-            remote_app: `remote_app@http://localhost:4203/remoteEntry.js`,
+            angular_app: `mfe@http://localhost:5200/remoteEntry.js`,
+            react_app: `react_app@http://localhost:4203/remoteEntry.js`,
         },
 
         shared: share({

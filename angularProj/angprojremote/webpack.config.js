@@ -12,13 +12,13 @@ module.exports = {
   output: {
     uniqueName: 'angRemote',
     scriptType: 'text/javascript',
-    publicPath: 'http://localhost:4201/',
+    publicPath: 'http://localhost:5200/',
   },
   optimization: {
     runtimeChunk: false
   },
   devServer: {
-    port: 4201,
+    port: 5200,
     headers: {
       'Access-Control-Allow-Origin': '*',
     },
@@ -36,7 +36,7 @@ module.exports = {
         name: "angprojremote",
         filename: "remoteEntry.js",
         exposes: {
-          './MFE': './src/app/mfe/mfe.module.ts',
+          './mfe': './src/app/mfe/mfe.module.ts',
           './Header': './src/app/header/header.component.ts',
           './Content': './src/app/content/content.component.ts',
           './Footer': './src/app/footer/footer.component.ts',

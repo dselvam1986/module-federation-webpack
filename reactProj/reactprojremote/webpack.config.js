@@ -47,7 +47,7 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'remote_app',
+      name: 'react_app',
       library: {type: 'var', name: 'remote_app'},
       filename: 'remoteEntry.js',
       exposes: { './UserButton': './src/UserButton'},
