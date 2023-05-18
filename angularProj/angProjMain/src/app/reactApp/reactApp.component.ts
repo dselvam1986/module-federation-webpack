@@ -15,7 +15,6 @@ const containerElementName = 'customReactComponentContainer';
     </div>
     <span #${containerElementName}></span>`,
   // encapsulation: ViewEncapsulation.None,
-  styleUrls: ['./reactApp.component.scss']
 })
 export class ReactAppComponent implements AfterViewInit, OnDestroy{
   @ViewChild(containerElementName, { static: true }) containerRef!: ElementRef;

@@ -1,10 +1,15 @@
 # AngularProjRemote
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.11.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.11. This is Client App ( Module Federation )
 
 ## Development server
 
+## Webpack
+Run `ng run:all` for a webpack server. Navigate to `http://localhost:4202/`. The application will automatically reload if you change any of the source files.
+
+
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
 
 ## Code scaffolding
 

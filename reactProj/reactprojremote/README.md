@@ -6,6 +6,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `npm run webpack`
+
+Runs the app using webpack. Exposes the component to be consume by host app.\
+Project will run at [http://localhost:4203](http://localhost:4203).
+
 ### `npm start`
 
 Runs the app in the development mode.\
