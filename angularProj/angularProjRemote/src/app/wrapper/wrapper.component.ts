@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedService } from 'hostApp/SharedService';
 
 @Component({
   selector: 'app-wrapper',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WrapperComponent implements OnInit {
 
-  constructor() { }
+  data: string = 'Message from Client App';
+  constructor(private shared: SharedService) { }
 
   ngOnInit(): void {
+    this.shared.sendMessage(this.data);
   }
 
+  
 }

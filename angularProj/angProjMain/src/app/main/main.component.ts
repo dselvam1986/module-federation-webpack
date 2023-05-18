@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedService } from '../shared/shared.service';
 
 @Component({
   selector: 'app-main',
@@ -8,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 export class MainComponent implements OnInit {
 
   title = 'Main Module - Component ';
-  constructor() { }
+  messageArray: String[] = [];
+  constructor(private shared: SharedService) { 
+    this.messageArray.push('Main Component Started')
+  }
 
   ngOnInit(): void {
+    this.shared.getData().subscribe((message) => {
+      if(message) this.messageArray.push(message)
+    })
   }
+
+
+
+
 
 }

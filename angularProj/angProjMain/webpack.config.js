@@ -31,9 +31,9 @@ module.exports = {
         // For remotes (please adjust)
         // name: "angProjMain",
         // filename: "remoteEntry.js",
-        // exposes: {
-        //     './Component': './/src/app/app.component.ts',
-        // },        
+        exposes: {
+            './SharedService': './/src/app/shared/shared.service.ts',
+        },        
         
         // For hosts (please adjust)
         // remotes: {
