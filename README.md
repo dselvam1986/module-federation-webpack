@@ -12,3 +12,6 @@ Client Project with exposed module ( consumed by host )
 # ReactProject
 React project with exposed Component which creates a button with log funtionality. 
 
+
+# Setup Instruction. 
+Available in the Readme files of each project. 

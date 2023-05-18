@@ -2,6 +2,45 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Steps to create MFE project using module federation for React ( client app )
+
+1. Create react project
+
+2. Create a webpack.config.js file and copy over the sample-webpack.config.ts file
+
+3. Under plugin update the exposes and shared param where needed.
+    Exposes -
+        key - Component Name
+        value - path to component
+    Shared:
+        packages that is required by host to render.
+
+    ## (CLIENT)
+    name: 'react_app',
+        library: {type: 'var', name: 'remote_app'},
+        filename: 'remoteEntry.js',
+        exposes: { './UserButton': './src/UserButton'},
+        shared: {
+            react: {
+                singleton: true,
+                requiredVersion: deps.react,
+            },
+            'react-dom': {
+                singleton: true,
+                requiredVersion: deps['react-dom'],
+            },
+        },
+    
+4. Running the Project.
+    ## (Client)
+    npm run webpack - this uses the webapck-cli to serve the files
+
+5. Consuming the exposed module ( React )
+    since react cant run diretly in angular project ( havent found a way YET ), best way is to use a wrapper component then create and render the app using react and react-dom. 
+    See code. 
+
+6. Have fun. More updates to follow
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -73,3 +112,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
