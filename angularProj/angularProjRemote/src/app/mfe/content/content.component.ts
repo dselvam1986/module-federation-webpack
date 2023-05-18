@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContentComponent implements OnInit {
 
-  title = 'angprojremote';
+  title = 'AngularProJRemote MFE - Content Component';
   constructor() { }
 
   ngOnInit(): void {

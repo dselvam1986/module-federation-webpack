@@ -10,8 +10,8 @@ sharedMappings.register(
 
 module.exports = {
   output: {
-    publicPath: 'http://localhost:4200/',
     uniqueName: "angProjMain",
+    publicPath: "auto"
   },
   optimization: {
     runtimeChunk: false
@@ -21,16 +21,13 @@ module.exports = {
       ...sharedMappings.getAliases(),
     }
   },
-  devServer: {
-    port: 4200,
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-    },
-    hot: false
+  experiments: {
+    outputModule: true
   },
   plugins: [
     new ModuleFederationPlugin({
-      
+        library: { type: "module" },
+
         // For remotes (please adjust)
         // name: "angProjMain",
         // filename: "remoteEntry.js",
@@ -39,9 +36,13 @@ module.exports = {
         // },        
         
         // For hosts (please adjust)
+        // remotes: {
+        //     "mfe1": "http://localhost:3000/remoteEntry.js",
+
+        // },
         name: 'angProjMain',
         remotes: {
-            angular_app: `mfe@http://localhost:5200/remoteEntry.js`,
+            angularMFE: `http://localhost:4202/remoteEntry.js`,
             react_app: `react_app@http://localhost:4203/remoteEntry.js`,
         },
 
@@ -52,8 +53,6 @@ module.exports = {
           "@angular/router": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
           "react": { singleton: true, strictVersion: true },
           "react-dom": { singleton: true, strictVersion: true },
-
-
           ...sharedMappings.getDescriptors()
         })
         

@@ -1,33 +1,57 @@
-// const path = require('path');
+const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const mf = require("@angular-architects/module-federation/webpack");
+const path = require("path");
+const share = mf.share;
+
+const sharedMappings = new mf.SharedMappings();
+sharedMappings.register(
+  path.join(__dirname, 'tsconfig.json'),
+  [/* mapped paths to share */]);
 
 module.exports = {
-    mode: 'development',
-    entry: './src/main.ts',
-    resolve: {
-        extensions: ['.ts', '.js'],
-    },
-    output: {
-        publicPath: 'http://localhost:4202/',
-        uniqueName: 'angularProjRemote',
-        scriptType: 'text/javascript',
-    },
-    module: {
-        rules: [
-          {
-            test: /\.ts$/,
-            use: 'ts-loader',
-            exclude: /node_modules/,
-          },
-        ],
-      },
-    optimization: {
-        runtimeChunk: false,
-    },
-    devServer: {
-        port: 4202,
-        headers: {
-            'Access-Control-Allow-Origin': '*',
-        },
-        hot: true,
-    },
-}
+  output: {
+    uniqueName: "angularProjRemote",
+    publicPath: "auto"
+  },
+  optimization: {
+    runtimeChunk: false
+  },   
+  resolve: {
+    alias: {
+      ...sharedMappings.getAliases(),
+    }
+  },
+  experiments: {
+    outputModule: true
+  },
+  plugins: [
+    new ModuleFederationPlugin({
+        library: { type: "module" },
+
+        // For remotes (please adjust)
+        name: "angularProjRemote",
+        filename: "remoteEntry.js",
+        exposes: {
+            './mfe': './/src/app/mfe/mfe.module.ts',
+            './content': './/src/app/mfe/content/content.component.ts',
+        },        
+        
+        // For hosts (please adjust)
+        // remotes: {
+        //     "mfe1": "http://localhost:3000/remoteEntry.js",
+
+        // },
+
+        shared: share({
+          "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
+          "@angular/common": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
+          "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
+          "@angular/router": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+
+          ...sharedMappings.getDescriptors()
+        })
+        
+    }),
+    sharedMappings.getPlugin()
+  ],
+};

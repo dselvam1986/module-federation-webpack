@@ -11,11 +11,11 @@ const routes: Routes = [
   {
     path:'mfe', 
     loadChildren: ()=> 
-      loadRemoteModule({
-        remoteEntry: 'http://localhost:4201/remoteEntry.js',
-        remoteName: 'angular_app',
-        exposedModule: 'MFE'
-      }).then( m => m.MFE)
+    loadRemoteModule({
+      type: 'module',
+      remoteEntry: 'http://localhost:4202/remoteEntry.js',
+      exposedModule: './mfe'
+    }).then((m) => {console.log(m); return m.MfeModule})
   }
 ];
 
@@ -24,7 +24,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-
-/**  {
-    path:'mfe', loadChildren: ()=> import('angular_app/MFE').then(m => m.MfeModule)
-  } */
