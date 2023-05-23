@@ -20,7 +20,7 @@ import { APP_NAME } from './app-name.token';
     MfeModule
   ],
   providers: [
-    { provide: APP_NAME, useValue: 'ClientApp' }
+    // { provide: APP_NAME, useValue: 'ClientApp' }
   ],
   bootstrap: [AppComponent]
 })

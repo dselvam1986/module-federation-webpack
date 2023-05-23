@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// import { SharedService } from '../shared/shared.service';
-import { ComLibService } from 'com-lib';
 
 @Component({
   selector: 'app-main',
@@ -11,10 +9,7 @@ export class MainComponent implements OnInit {
 
   title = 'Main Module - Component ';
   messageArray: String[] = [];
-  constructor(private service: ComLibService) { 
-    // private shared: SharedService
-    // this.messageArray.push('Main Component Started')
-    this.service.login('Dino', 'cob');
+  constructor() { 
   }
 
   ngOnInit(): void {

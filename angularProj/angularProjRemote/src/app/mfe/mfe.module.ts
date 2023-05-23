@@ -3,9 +3,6 @@ import { CommonModule } from '@angular/common';
 import { ContentComponent } from './content/content.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from '../footer/footer.component';
-import { loadRemoteModule } from '@angular-architects/module-federation';
-import { SharedModule } from 'hostShared/SharedModule';
 
 const routes: Routes = [
   {path: '', component: ContentComponent}
@@ -29,7 +26,6 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    SharedModule
   ],
   exports: [HeaderComponent, ContentComponent],
   providers: []

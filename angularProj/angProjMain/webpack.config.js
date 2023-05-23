@@ -3,10 +3,10 @@ const mf = require("@angular-architects/module-federation/webpack");
 const path = require("path");
 const share = mf.share;
 
-const sharedMappings = new mf.SharedMappings();
-sharedMappings.register(
-  path.join(__dirname, 'tsconfig.json'),
-  [/* mapped paths to share */]);
+// const sharedMappings = new mf.SharedMappings();
+// sharedMappings.register(
+//   path.join(__dirname, 'tsconfig.json'),
+//   [/* mapped paths to share */]);
 
 module.exports = {
   output: {
@@ -18,7 +18,7 @@ module.exports = {
   },   
   resolve: {
     alias: {
-      ...sharedMappings.getAliases(),
+      // ...sharedMappings.getAliases(),
     }
   },
   experiments: {
@@ -30,10 +30,10 @@ module.exports = {
 
         // For remotes (please adjust)
         // name: "angProjMain",
-        filename: "remoteEntry.js",
-        exposes: {
-            './SharedModule': './/src/app/shared/shared.module.ts',
-        },        
+        // filename: "remoteEntry.js",
+        // exposes: {
+        //     './SharedModule': './/src/app/shared/shared.module.ts',
+        // },        
         
         // For hosts (please adjust)
         // remotes: {
@@ -53,13 +53,14 @@ module.exports = {
           "@angular/router": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
           "react": { singleton: true, strictVersion: true },
           "react-dom": { singleton: true, strictVersion: true },
-          ...sharedMappings.getDescriptors()
+          // "com-lib-module-federation-dino": {singleton: true, strictVersion: true}
+          // ...sharedMappings.getDescriptors()
         }),
 
-        sharedMappings: ['com-lib'],
+        // sharedMappings: ['com-lib'],
         
         
     }),
-    sharedMappings.getPlugin()
+    // sharedMappings.getPlugin()
   ],
 };

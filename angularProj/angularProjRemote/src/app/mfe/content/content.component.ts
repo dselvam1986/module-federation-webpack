@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import { SharedService } from 'hostShared/SharedModule/SharedService';
-import { ComLibService } from 'com-lib';
+import { ComLibService } from 'com-lib-module-federation-dino/src/public-api';
 
 @Component({
   selector: 'content',
@@ -9,17 +8,18 @@ import { ComLibService } from 'com-lib';
 })
 export class ContentComponent implements OnInit {
 
-  shared: any;
   title = 'AngularProJRemote MFE - Content Component';
-  constructor() {
-    // this.shared = new SharedService()
+  constructor(private shared: ComLibService) {
    }
 
+   /**
+    * 
+    */
   ngOnInit(): void {
   }
 
-  // passMessage(){
-  //   console.log('Client App Pass message clicked');
-  //   this.shared.sendMessage();
-  // }
+  passMessage(){
+    console.log('Client App Pass message clicked');
+    // this.shared.login("client Dino", 'text');
+  }
 }

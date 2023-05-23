@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { ReactAppComponent } from './reactApp/reactApp.component';
 import { MainModule } from './main/main.module';
 import { APP_NAME } from './app-name.token';
-import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
@@ -18,10 +17,9 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     AppRoutingModule,
     MainModule,
-    SharedModule
   ],
   providers: [
-    { provide: APP_NAME, useValue: 'HostApp' }
+    // { provide: APP_NAME, useValue: 'HostApp' }
   ],
   bootstrap: [AppComponent]
 })
