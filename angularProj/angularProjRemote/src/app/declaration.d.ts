@@ -1,1 +1,2 @@
-declare module 'hostApp/SharedService';
+declare module 'hostShared/SharedModule';
+declare module 'hostShared/SharedModule/*';

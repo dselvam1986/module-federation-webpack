@@ -38,7 +38,7 @@ module.exports = {
         
         // For hosts (please adjust)
         remotes: {
-            "hostApp": "http://localhost:4200/remoteEntry.js",
+            "hostShared": "hostShared@http://localhost:4200/remoteEntry.js", // shared services
 
         },
 
@@ -47,9 +47,9 @@ module.exports = {
           "@angular/common": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
           "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
           "@angular/router": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-
           ...sharedMappings.getDescriptors()
-        })
+        }),
+        sharedMappings: ['com-lib'],
         
     }),
     sharedMappings.getPlugin()

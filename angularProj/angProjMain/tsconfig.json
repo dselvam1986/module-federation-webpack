@@ -2,6 +2,13 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "paths": {
+      "com-lib": [
+        "projects/com-lib/src/public-api.ts",
+        // "dist/com-lib/com-lib",
+        // "dist/com-lib"
+      ]
+    },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -20,8 +27,7 @@
     "lib": [
       "es2020",
       "dom"
-    ],
-    "suppressImplicitAnyIndexErrors": true
+    ]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

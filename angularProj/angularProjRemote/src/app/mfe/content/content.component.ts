@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+// import { SharedService } from 'hostShared/SharedModule/SharedService';
+import { ComLibService } from 'com-lib';
 
 @Component({
   selector: 'content',
@@ -7,10 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContentComponent implements OnInit {
 
+  shared: any;
   title = 'AngularProJRemote MFE - Content Component';
-  constructor() { }
+  constructor() {
+    // this.shared = new SharedService()
+   }
 
   ngOnInit(): void {
   }
 
+  // passMessage(){
+  //   console.log('Client App Pass message clicked');
+  //   this.shared.sendMessage();
+  // }
 }

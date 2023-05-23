@@ -30,9 +30,9 @@ module.exports = {
 
         // For remotes (please adjust)
         // name: "angProjMain",
-        // filename: "remoteEntry.js",
+        filename: "remoteEntry.js",
         exposes: {
-            './SharedService': './/src/app/shared/shared.service.ts',
+            './SharedModule': './/src/app/shared/shared.module.ts',
         },        
         
         // For hosts (please adjust)
@@ -54,7 +54,10 @@ module.exports = {
           "react": { singleton: true, strictVersion: true },
           "react-dom": { singleton: true, strictVersion: true },
           ...sharedMappings.getDescriptors()
-        })
+        }),
+
+        sharedMappings: ['com-lib'],
+        
         
     }),
     sharedMappings.getPlugin()
