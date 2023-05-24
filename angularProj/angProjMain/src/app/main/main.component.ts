@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MfeMessageService } from 'shared-mfe-message';
+import { APP_NAME } from '../app-name.token';
+
 
 @Component({
   selector: 'app-main',
@@ -7,19 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  title = 'Main Module - Component ';
+  title = 'HOST ( Shell ) App - Main Component';
+  user: any;
   messageArray: String[] = [];
-  constructor() { 
+  message: string ='';
+
+  constructor(@Inject(APP_NAME) private app: string, private shared: MfeMessageService) { 
+    this.shared.login(app,'test');
   }
 
   ngOnInit(): void {
-    // this.shared.getData().subscribe((message) => {
-    //   console.log(message);
-    //   if(message)this.messageArray.push(message)
-    // })
+    this.shared.c2h$.subscribe((message) => {
+      if(message)this.messageArray.push(message)
+    })
+    
+    this.user = this.shared.user;
   }
 
-
+  passMessage(){
+    this.shared.sendToClient(this.message);
+  }
 
 
 

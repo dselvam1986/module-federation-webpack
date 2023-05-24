@@ -3,11 +3,6 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "com-lib": [
-        "projects/com-lib/src/public-api.ts",
-        // "dist/com-lib/com-lib",
-        // "dist/com-lib"
-      ]
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,

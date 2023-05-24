@@ -8,6 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { MfeModule } from './mfe/mfe.module';
 import { APP_NAME } from './app-name.token';
 
+import { MfeMessageService } from 'shared-mfe-message';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import { APP_NAME } from './app-name.token';
     MfeModule
   ],
   providers: [
-    // { provide: APP_NAME, useValue: 'ClientApp' }
+    { provide: APP_NAME, useValue: 'Client-Dino' },
+    MfeMessageService
   ],
   bootstrap: [AppComponent]
 })

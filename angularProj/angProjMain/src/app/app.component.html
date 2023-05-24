@@ -28,11 +28,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#" routerLink="/">Host App</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" routerLink="/react">React App</a>
+          <a class="nav-link" href="#" routerLink="/">React App</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/mfe">Micro Front End App</a>
@@ -42,6 +40,17 @@
   </div>
 </nav>
 <div class="wrapper">
-  <router-outlet></router-outlet>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col hostWrap">
+        <app-main></app-main>
+      </div>
+      <div class="col clientWrap">
+        <router-outlet></router-outlet>
+      </div>
+      
+    </div>
+  </div>
+  
   
 </div>

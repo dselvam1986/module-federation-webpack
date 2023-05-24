@@ -6,8 +6,9 @@ import { ReactAppComponent } from './reactApp/reactApp.component';
 import { loadRemoteModule } from '@angular-architects/module-federation';
 
 const routes: Routes = [
-  {path: '', component: MainComponent},
-  {path: 'react', component: ReactAppComponent},
+  // {path: '', loadChildren:()=> import('./main/main.module').then(m=> m.MainModule)},
+  // {path: '', component: MainComponent},
+  {path: '', component: ReactAppComponent},
   {
     path:'mfe', 
     loadChildren: ()=> 

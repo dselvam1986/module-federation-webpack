@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ComLibService } from 'com-lib-module-federation-dino/src/public-api';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MfeMessageService } from 'shared-mfe-message';
+import { APP_NAME } from 'src/app/app-name.token';
 
 @Component({
   selector: 'content',
@@ -8,18 +9,24 @@ import { ComLibService } from 'com-lib-module-federation-dino/src/public-api';
 })
 export class ContentComponent implements OnInit {
 
-  title = 'AngularProJRemote MFE - Content Component';
-  constructor(private shared: ComLibService) {
+  title = 'REMOTE ( MFE-client )  - Content Component';
+  user: any;
+  message: string = '';
+  messageArray: String[] = [];
+  constructor(private shared: MfeMessageService) {
+    // this.shared.login('Dino', 'test')
    }
 
-   /**
-    * 
-    */
   ngOnInit(): void {
+    this.shared.h2c$.subscribe(val => {
+      if(val)this.messageArray.push(val)
+    })
+
+    this.user = this.shared.user
   }
 
   passMessage(){
     console.log('Client App Pass message clicked');
-    // this.shared.login("client Dino", 'text');
+    this.shared.sendToHost(this.message);
   }
 }

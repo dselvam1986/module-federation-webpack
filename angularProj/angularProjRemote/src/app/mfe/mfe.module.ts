@@ -3,20 +3,11 @@ import { CommonModule } from '@angular/common';
 import { ContentComponent } from './content/content.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {path: '', component: ContentComponent}
 ];
-
-// async function loadServices(){
-
-//   await loadRemoteModule({
-//     type: 'module',
-//     remoteEntry: 'http://localhost:4200/remoteEntry.js',
-//     exposedModule: './SharedModule'
-//   }).then(s => {return s.SharedModule})
-
-// }
 
 @NgModule({
   declarations: [
@@ -26,6 +17,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
+    FormsModule
   ],
   exports: [HeaderComponent, ContentComponent],
   providers: []
