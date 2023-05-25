@@ -19,8 +19,8 @@ export class MainComponent implements OnInit {
   messageArray: String[] = [];
   message: string ='';
 
-  count$: Observable<number> = this.store.pipe(select('count'));
-
+  count$ = this.store.pipe(select('count'));
+  currentCount: any;
   constructor(
     @Inject(APP_NAME) private app: string, 
     private shared: MfeMessageService,
@@ -31,7 +31,9 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.count$);
+    this.count$.subscribe( (v:any) => this.currentCount = v.count)
+    // this.store.pipe(select('count'));
+    
     
     this.shared.c2h$.subscribe((message) => {
       if(message)this.messageArray.push(message)

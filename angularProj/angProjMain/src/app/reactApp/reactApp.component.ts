@@ -28,11 +28,7 @@ export class ReactAppComponent implements AfterViewInit, OnDestroy{
     this.root = createRoot(this.containerRef.nativeElement);
     try {
       this.loadRemoteEntry().then((val) => {
-        console.log(val);
-        console.log(val.UserButton);
         let node = React.createElement(val.UserButton); 
-        console.log(node);
-        
         this.root.render(node)
       });
       

@@ -8,18 +8,18 @@ export const initialState: CounterState = {
  
 export const counterReducer = createReducer(
   initialState,
-  on(increment, (state) => { 
-    state.count++;
-    return state
-  }),
-  on(decrement, (state) => { 
-     state.count--;
-     return state;
-  }),
-  on(reset, (state ) => {
-    state.count = initialState.count;
-    return state
-  }),
+  on(increment, (state) => ({ 
+    ...state, 
+    count: state.count + 1
+  })),
+  on(decrement, (state) => ({ 
+    ...state, 
+    count: state.count - 1
+  })),
+  on(reset, (state ) => ({ 
+    ...state, 
+    count: initialState.count
+  })),
 );
  
 // export function counterReducer(state:any, action: any) {
