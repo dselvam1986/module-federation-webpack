@@ -39,7 +39,7 @@ export class ReactNotifyComponent implements OnInit ,AfterViewInit, OnDestroy{
           exposedModule: './Notify',
         }).then(v => {return v.Notify})
 
-        console.log(rComponent);
+        // console.log(rComponent);
         let node = React.createElement(rComponent, {message: this.shared.user});
         this.root.render( node )
 

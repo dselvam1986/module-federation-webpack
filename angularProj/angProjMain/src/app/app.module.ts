@@ -11,8 +11,8 @@ import { MainComponent } from './main/main.component';
 import { FormsModule } from '@angular/forms';
 
 //ngrx store
-// import { StoreModule } from '@ngrx/store';
-// import { counterReducer } from './counter.reducer';
+import { StoreModule } from '@ngrx/store';
+import { counterReducer } from './store/counter.reducer';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,7 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    // StoreModule.forRoot({count: counterReducer})
+    StoreModule.forRoot({count: counterReducer})
     // MainModule,
   ],
   providers: [
