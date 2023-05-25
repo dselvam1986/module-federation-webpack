@@ -28,7 +28,11 @@ export class ReactAppComponent implements AfterViewInit, OnDestroy{
     this.root = createRoot(this.containerRef.nativeElement);
     try {
       this.loadRemoteEntry().then((val) => {
+        console.log(val);
+        console.log(val.UserButton);
         let node = React.createElement(val.UserButton); 
+        console.log(node);
+        
         this.root.render(node)
       });
       
@@ -37,6 +41,16 @@ export class ReactAppComponent implements AfterViewInit, OnDestroy{
     }
   }
 
+  // async loadRemoteEntry() {
+  //   //  const remoteUrl = 'http://localhost:4203/remoteEntry.js';
+  //    const remoteUrl = 'http://localhost:4204/remoteEntry.js';
+  //   const module = await loadRemoteModule({
+  //     remoteEntry: remoteUrl,
+  //     remoteName: 'remote_notification',
+  //     exposedModule: './Notify',
+  //   });
+  //   return module;
+  // }
   async loadRemoteEntry() {
     const remoteUrl = 'http://localhost:4203/remoteEntry.js';
     const module = await loadRemoteModule({

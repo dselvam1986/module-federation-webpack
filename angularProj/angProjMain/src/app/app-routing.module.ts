@@ -4,11 +4,13 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { ReactAppComponent } from './reactApp/reactApp.component';
 import { loadRemoteModule } from '@angular-architects/module-federation';
+import { ReactNotifyComponent } from './reactApp/reactNotify.component';
 
 const routes: Routes = [
   // {path: '', loadChildren:()=> import('./main/main.module').then(m=> m.MainModule)},
   // {path: '', component: MainComponent},
   {path: '', component: ReactAppComponent},
+  {path: 'notify', component: ReactNotifyComponent},
   {
     path:'mfe', 
     loadChildren: ()=> 

@@ -44,6 +44,7 @@ module.exports = {
         remotes: {
             angularMFE: `http://localhost:4202/remoteEntry.js`,
             react_app: `react_app@http://localhost:4203/remoteEntry.js`,
+            react_notification: `react_notification@http://localhost:4204/remoteEntry.js`,
         },
 
         shared: share({

@@ -10,6 +10,9 @@ import { MfeMessageService } from 'shared-mfe-message';
 import { MainComponent } from './main/main.component';
 import { FormsModule } from '@angular/forms';
 
+//ngrx store
+// import { StoreModule } from '@ngrx/store';
+// import { counterReducer } from './counter.reducer';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    // StoreModule.forRoot({count: counterReducer})
     // MainModule,
   ],
   providers: [

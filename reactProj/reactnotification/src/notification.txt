@@ -1,0 +1,110 @@
+// import * as React from 'react';
+// import { Button, TextField, Popover, PopoverClose, PopoverTitle } from '@huntington/honeycomb';
+// // import Popover from '@mui/material/Popover';
+// import Typography from '@mui/material/Typography';
+// import List from '@mui/material/List';
+// import ListItem from '@mui/material/ListItem';
+// import Divider from '@mui/material/Divider';
+// import ListItemText from '@mui/material/ListItemText';
+// import ListItemAvatar from '@mui/material/ListItemAvatar';
+// import AlbumIcon from '@mui/icons-material/Album';
+
+// const notification = () => {
+// 	let tasDefaultData = [
+// 		{
+// 			customerId: ' ',
+// 			id: ' ',
+// 			realId: ' ',
+// 			title: ' ',
+// 			status: ' ',
+// 			submittedBy: ' ',
+// 			submitDate: ' ',
+// 			targetCompletionDate: ' ',
+// 			entityName: ' ',
+// 			overDue: false,
+// 			rejected: false,
+// 			inProgress: true,
+// 			inReview: false,
+// 			accepted: false,
+// 		},
+// 	];
+// 	const [taskdata, settaskdata] = React.useState(tasDefaultData);
+
+// 	const [anchorEl, setAnchorEl] = React.useState(null);
+// 	const handleClosePopover = () => {
+// 		setAnchorEl(null);
+// 	};
+// 	// capturing click from angular
+// 	window.addEventListener('openNotifications', (event: any) => {
+// 		handleOpenMenu(event);
+// 	});
+
+// 	// recieving data from angular
+// 	window.addEventListener('notificationData', (event: any) => {
+// 		// setting data
+// 		settaskdata(event.detail);
+// 	});
+// 	const handleOpenMenu = (event: any) => {
+// 		setAnchorEl(event.currentTarget);
+// 	};
+
+// 	const handleListItemClick = (task: any) => {
+// 		const event = new CustomEvent('opentaskModelview', { detail: { task } });
+// 		window.dispatchEvent(event);
+// 		handleClosePopover();
+// 	};
+
+// 	return (
+// 		<Popover
+// 			id="popover-basic"
+// 			anchorEl={anchorEl}
+// 			open={Boolean(anchorEl)}
+// 			onClose={handleClosePopover}
+// 			anchorOrigin={{
+// 				vertical: 'top',
+// 				horizontal: 'right',
+// 			}}
+// 			transformOrigin={{
+// 				vertical: 'top',
+// 				horizontal: 'right',
+// 			}}
+// 			style={{ marginTop: '60px' }}
+// 		>
+// 			<PopoverClose onClick={handleClosePopover} />
+// 			<div style={{ width: '100%', padding: '10px' }}>
+// 				<Typography variant="h6">Notificatons ({taskdata.length})</Typography>
+// 				<Typography variant="body1">
+// 					{taskdata.map(item => (
+// 						<List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+// 							<ListItem alignItems="flex-start">
+// 								<ListItemAvatar>
+// 									<AlbumIcon />
+// 								</ListItemAvatar>
+// 								<ListItemText
+// 									primary={`A task is ${item.status}`}
+// 									secondary={
+// 										<React.Fragment>
+// 											<Typography
+// 												sx={{ display: 'inline' }}
+// 												component="span"
+// 												variant="body2"
+// 												color="text.primary"
+// 											>
+// 												{item.targetCompletionDate}
+// 											</Typography>
+// 										</React.Fragment>
+// 									}
+// 									onClick={() => handleListItemClick(item)}
+// 									sx={{ cursor: 'pointer' }}
+// 								/>
+// 							</ListItem>
+// 							<Divider variant="inset" component="li" />
+// 						</List>
+// 					))}
+// 				</Typography>
+// 			</div>
+// 		</Popover>
+// 	);
+// };
+
+// export default notification;
