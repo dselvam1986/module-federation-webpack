@@ -6,19 +6,19 @@ interface NotificationProps {
 
 export const Notify: React.FC<NotificationProps> = ({message}) => {
 
+    // POPOVER
     const [showPopover, setShowPopover] =useState(false);
-
     const togglePopover = () => {
         setShowPopover(!showPopover);
     }
-
-  const fireEvent = () =>{
-    // const event = new CustomEvent('reactBtnClick', {
-    //   detail: {message: 'React fired event to angular component', numClick: count}
-    // })
-    // window.dispatchEvent(event);
-    console.log("React function triggered")
-  }
+    
+    const fireEvent = () =>{
+        // const event = new CustomEvent('reactBtnClick', {
+        // detail: {message: 'React fired event to angular component', numClick: count}
+        // })
+        // window.dispatchEvent(event);
+        console.log("React function triggered")
+    }
 
     return (
         <div>

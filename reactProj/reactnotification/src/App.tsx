@@ -1,11 +1,11 @@
-import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Notify } from './Notify';
-// import { Provider } from 'react-redux';
-// import store from './store';
+import { Provider } from 'react-redux';
+import store from './store/counter.store';
+import { Counter } from './Counter';
 
-export function App() {
+function App() {
   return (
     <div className="App">
       <header className="App-header">
@@ -21,10 +21,14 @@ export function App() {
         >
           Learn React
         </a>
+        
         <Notify message='Hello'></Notify>
+        <Provider store={store}>
+          <Counter></Counter>
+        </Provider>
       </header>
-      
-      
     </div>
   );
 }
+
+export default App;
