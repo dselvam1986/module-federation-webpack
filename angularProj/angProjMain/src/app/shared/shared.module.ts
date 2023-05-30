@@ -5,7 +5,7 @@ import { SharedService } from './shared.service';
 
 @NgModule({
   providers: [
-    SharedService
+    
   ]
 
   
