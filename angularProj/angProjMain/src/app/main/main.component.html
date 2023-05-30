@@ -55,7 +55,7 @@
 
   <div class="card-container">
     <ng-container *ngFor="let msg of messageArray">
-      <a class="card">  
+      <a class="card" (click)="close(msg)">  
         <span>{{msg}}</span>
       </a>
     </ng-container>

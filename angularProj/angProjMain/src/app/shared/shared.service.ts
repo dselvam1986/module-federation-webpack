@@ -7,18 +7,15 @@ import { APP_NAME } from "../app-name.token";
     providedIn: 'root'
 })
 export class SharedService {
-    private messageSubject = new BehaviorSubject<string>('');
+    
+    counterSubject = new BehaviorSubject<number>(0);
+    counter$ = this.counterSubject.asObservable();
+
+    messageSubject = new BehaviorSubject<number>(0);
+    message$ = this.messageSubject.asObservable();
 
     constructor(@Inject(APP_NAME) private appName: string){
         console.log("Initalized in ", appName)
     }
     
-    sendMessage(data: string): void {
-        console.log('data', data)
-        this.messageSubject.next(data);
-    }
-
-    getData(): Observable<string> {
-        return this.messageSubject.asObservable();
-    }
 }
