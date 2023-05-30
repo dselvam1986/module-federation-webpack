@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { increment, decrement, reset } from "./store/counter.reducer";
-import store from "./store/counter.store";
+// import store from "./store/counter.store";
 
 export const Counter = () => {
     
