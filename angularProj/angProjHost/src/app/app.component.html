@@ -1,0 +1,58 @@
+<!-- Toolbar -->
+<div class="toolbar" role="banner">
+  <img 
+    alt="Huntington Logo"
+    src="assets\angular_logo.png"
+  />
+  <span>Host Angular Application</span>
+    <div class="spacer"></div>
+    <!-- <a aria-label="Angular on twitter" target="_blank" rel="noopener" href="https://twitter.com/angular" title="Twitter">
+      <span> {{user}} </span>
+    </a>
+    <a aria-label="Angular on YouTube" target="_blank" rel="noopener" href="https://youtube.com/angular" title="YouTube">
+      <svg id="youtube-logo" height="24" width="24" data-name="Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff">
+        <path d="M0 0h24v24H0V0z" fill="none"/>
+        <path d="M21.58 7.19c-.23-.86-.91-1.54-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42c-.86.23-1.54.91-1.77 1.77C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.91 1.54 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.81-.42c.86-.23 1.54-.91 1.77-1.77C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3-5.2 3z"/>
+      </svg>
+    </a> -->
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+    <div class="spacer"></div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link " [ngClass]="{'nav-link--active': currentPath=='/'}"  href="#" routerLink="/">Main</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " [ngClass]="{'nav-link--active': currentPath=='/r-mfe'}"  href="#" routerLink="/r-mfe">React (MFE) App</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [ngClass]="{'nav-link--active': currentPath=='/a-mfe'}" routerLink="/a-mfe">Angular (MFE) App</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col hostWrap">
+        <app-main></app-main>
+      </div>
+      <div class="col clientWrap">
+        <div class="raisedBox">
+          <router-outlet></router-outlet>
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+  
+  
+</div>
