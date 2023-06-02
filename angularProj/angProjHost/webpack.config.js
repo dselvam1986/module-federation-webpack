@@ -54,6 +54,8 @@ module.exports = {
           "shared-mfe-message": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
           "react": { singleton: true, strictVersion: true },
           "react-dom": { singleton: true, strictVersion: true },
+          "redux": { singleton: true, strictVersion: true },
+          "react-redux": { singleton: true, strictVersion: true },
           ...sharedMappings.getDescriptors()
         }),
     }),
