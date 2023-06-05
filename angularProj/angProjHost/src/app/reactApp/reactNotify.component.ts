@@ -1,11 +1,13 @@
 import { Component, ElementRef, OnInit, ViewChild, ViewEncapsulation, AfterViewInit, OnDestroy, ViewContainerRef, HostListener } from '@angular/core';
 import * as React from 'react';
+import { Provider } from "react-redux";
 import { createRoot } from 'react-dom/client';
 import { loadRemoteModule } from '@angular-architects/module-federation';
 import { MfeMessageService } from 'shared-mfe-message';
 import { Store, select } from '@ngrx/store';
 import { CounterState } from '../store/counter.state';
 import { SharedService } from '../shared/shared.service';
+import { counterSlice, sharedStore } from '../shared/shared.store';
 
 const containerElementName = 'customReactComponentContainer';
 
@@ -31,7 +33,7 @@ export class ReactNotifyComponent implements OnInit ,AfterViewInit, OnDestroy{
   async ngOnInit() {
 
 
-    this.mfeShared.h2c$.subscribe((message) => {
+    this.mfeShared.h2c$.subscribe((message: string) => {
       if(message) this.messagestr = message
     })
 
@@ -56,7 +58,10 @@ export class ReactNotifyComponent implements OnInit ,AfterViewInit, OnDestroy{
           messageClient$: this.shared.messageClient$
         });
 
-        this.root.render(node)
+        //Provider({store: sharedStore, context: undefined, children: node })
+        this.root.render(
+          node
+        )
       });
       
     } catch (error) {

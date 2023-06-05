@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { useSelector } from "react-redux";
 
 
 const initialState= {
@@ -12,11 +13,21 @@ const counterSlice = createSlice({
         increment: (state) => ({...state, count: state.count + 1}),
         decrement: (state) => ({...state, count: state.count - 1}),
         reset: (state) => ({...state, count: initialState.count }),
+        setCount: (state, action) => {state.count = action.payload},
+        getValue: (state)=> { return {count: state.count}}
     }
 });
 
-export const { increment, decrement, reset } = counterSlice.actions;
+export const { increment, decrement, reset, setCount, getValue } = counterSlice.actions;
 export default counterSlice.reducer;
+
+export const getStateValue = createAsyncThunk(
+    'getStateValue',
+    async (_, {getState}) => {
+        const state = getState();
+        return state.counter.count
+    }
+)
 // 
 //Actions
 // const INCREMENT = 'INCREMENT';

@@ -62,7 +62,15 @@ module.exports = {
         'react-dom': {
           singleton: true,
           requiredVersion: deps['react-dom'],
-        }
+        },
+        'redux':{
+          singleton: true,
+          requiredVersion: deps['redux'],
+        },
+        'react-redux':{
+          singleton: true,
+          requiredVersion: deps['react-redux'],
+        },
       },
     }),
   ],

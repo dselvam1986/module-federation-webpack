@@ -1,0 +1,62 @@
+.huntington-button {
+    font-weight: 500;
+    background-color: #394048;
+    color: #ffffff;
+    border-color: #394048;
+    border-radius: 3.125rem;
+    border-width: 0.125rem;
+    border-style: solid;
+    height: 2rem;
+    text-decoration: none;
+    padding: 0 2rem;
+    transform: scale(1);
+    transition: transform 50ms ease-in, background-color 200ms ease-in, border 200ms ease-in, color 200ms ease-in;
+    margin-right: 5px;
+  }
+
+  .huntingtonTextBox {
+    font-family: Muli, arial, helvetica, sans-serif;
+    position: relative;
+    box-shadow: 0 0 0 0.0625rem #e0e3e8;
+    display: inline-flex;
+    border-radius: 0.125rem;
+    transition: box-shadow 200ms linear;
+    padding: 0;
+    color: #394048;
+    font-weight: 400;
+    font-size: 1rem;
+    margin-top: 0.75rem;
+  }
+
+  .huntingtonTextBox-label {
+    font-weight: 700;
+    font-size: 0.875rem;
+    color: inherit;
+    position: absolute;
+    top: 0;
+    left: 0.625rem;
+    background: #ffffff;
+    padding: 0 0.625rem;
+    transform: translateY(-50%) translateY(-2px);
+    line-height: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: calc(100% - 2.5rem);
+
+  }
+
+  .huntingtonTextBox-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    cursor: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+    color: inherit;
+    width: 100%;
+    height: 2.5rem;
+    padding: 0 0.5rem 0 1.25rem;
+  }

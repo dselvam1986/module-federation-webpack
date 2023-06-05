@@ -3,7 +3,7 @@ import { MfeMessageService } from 'shared-mfe-message';
 import { APP_NAME } from '../app-name.token';
 
 import { Store, select } from '@ngrx/store';
-import { increment, decrement, reset } from '../store/counter.actions';
+import { increment, decrement, reset, setValue } from '../store/counter.actions';
 import { CounterState } from '../store/counter.state';
 import { SharedService } from '../shared/shared.service';
 import { NavigationEnd, Router } from '@angular/router';
@@ -66,8 +66,9 @@ export class MainComponent implements OnInit {
     // REACT MFE 
     // STATE COUNTER
     this.shared.counter$.subscribe((num) => {
-      let msg = 'React-MFE (State) - Subject: ' +  num
-      this.messageArray.push(msg)     
+      // let msg = 'React-MFE (State) - Subject: ' +  num
+      // this.messageArray.push(msg)
+      this.store.dispatch(setValue({value: num}))
     })
 
     this.shared.messageHost$.subscribe((num:any) => {

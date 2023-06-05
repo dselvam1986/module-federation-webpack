@@ -3,7 +3,6 @@ import './App.css';
 import { Notify } from './Notify';
 import { Provider } from 'react-redux';
 import store from './store/counter.store';
-import { Counter } from './Counter';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 function App() {
