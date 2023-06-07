@@ -1,9 +1,8 @@
-import { useDispatch, useSelector } from "react-redux";
-import { increment, decrement, reset, setCount, getValue, getStateValue } from "./store/counter.reducer";
-// import store from "./store/counter.store";
+import { useDispatch, useSelector,  } from "react-redux";
+import { increment, decrement, reset, setCount, getStateValue, getValue } from "./store/counter.reducer";
+import {ThunkDispatch} from "@reduxjs/toolkit";
 import React, {useEffect} from 'react';
 import { BehaviorSubject } from "rxjs";
-import {Notify} from './Notify';
 import './Counter.css';
 
 interface prop {
@@ -13,12 +12,12 @@ interface prop {
 export const Counter:React.FC<prop> = ({store, counterSubject}) => {
     
     //STORE
-    const count = useSelector((state)=> (state.counter.count))
-    const dispatch = useDispatch();
+    const count = useSelector((state:any)=> (state.counter.count))
+    const dispatch = useDispatch<ThunkDispatch<any,any,any>>();
 
     const updateHost = (type: string) =>{
     
-        dispatch(getStateValue()).then((action) => {
+        dispatch(getStateValue()).then((action:any) => {
             // console.log('current val', action);
             counterSubject.next(action.payload);
         })

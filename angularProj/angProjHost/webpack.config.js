@@ -41,10 +41,10 @@ module.exports = {
 
         // },
         name: 'angProjMain',
-        remotes: {
-            angularMFE: `http://localhost:8082/remoteEntry.js`,
-            react_notification: `react_notification@http://localhost:8081/remoteEntry.js`,
-        },
+        // remotes: {
+        //     angularMFE: `http://localhost:8082/remoteEntry.js`,
+        //     react_notification: `react_notification@http://localhost:8081/remoteEntry.js`,
+        // },
 
         shared: share({
           "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
