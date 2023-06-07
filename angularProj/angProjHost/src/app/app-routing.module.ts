@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { ReactAppComponent } from './reactApp/reactApp.component';
-import { loadRemoteModule } from '@angular-architects/module-federation';
+import { loadRemoteModule,  } from '@angular-architects/module-federation';
 import { ReactNotifyComponent } from './reactApp/reactNotify.component';
 import { SkeletonComponent } from './skeleton/skeleton.component';
 
@@ -17,7 +17,7 @@ const routes: Routes = [
     loadRemoteModule({
       type: 'module',
       remoteEntry: 'http://localhost:8082/remoteEntry.js',
-      exposedModule: './mfe'
+      exposedModule: './mfe',
     }).then((m) => {console.log(m); return m.MfeModule})
   }
 ];

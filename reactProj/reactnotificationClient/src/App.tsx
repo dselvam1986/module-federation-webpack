@@ -1,8 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
 import { Notify } from './Notify';
-import { Provider } from 'react-redux';
-import store from './store/counter.store';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 function App() {

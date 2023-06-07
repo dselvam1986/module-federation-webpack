@@ -1,6 +1,4 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { useSelector } from "react-redux";
-
 
 const initialState= {
     count: 0
@@ -21,10 +19,10 @@ const counterSlice = createSlice({
 export const { increment, decrement, reset, setCount, getValue } = counterSlice.actions;
 export default counterSlice.reducer;
 
-export const getStateValue = createAsyncThunk(
+export const getStateValue = createAsyncThunk<any>(
     'getStateValue',
     async (_, {getState}) => {
-        const state = getState();
+        const state:any = getState();
         return state.counter.count
     }
 )

@@ -1,0 +1,14 @@
+{
+    "mfeConfig": [
+        {
+            "type": "module",
+            "remoteEntry": "http://localhost:8082/remoteEntry.js"
+        },
+        {
+            "type": "script",
+            "remoteEntry": "http://localhost:8081/remoteEntry.js",
+            "remoteName": "react_notification"
+        }
+    ]
+    
+}

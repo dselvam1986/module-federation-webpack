@@ -72,6 +72,7 @@ export class ReactNotifyComponent implements OnInit ,AfterViewInit, OnDestroy{
   async loadRemoteEntry() {
     const remoteUrl = 'http://localhost:8081/remoteEntry.js';
     const module = await loadRemoteModule({
+      type: 'script',
       remoteEntry: remoteUrl,
       remoteName: 'react_notification',
       exposedModule: './Notify',
