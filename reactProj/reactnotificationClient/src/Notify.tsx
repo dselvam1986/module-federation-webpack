@@ -29,30 +29,6 @@ export const Notify:React.FC<CounterProps> = ({ message,  store$, counterSubject
     //     setShowPopover(!showPopover);
     // }
 
-    
-    // const initialState= {
-    //     count: 0
-    // }
-
-    // const counterSlice = createSlice({
-    //     name: 'counter', 
-    //     initialState, 
-    //     reducers: {
-    //         increment: (state) => ({...state, count: state.count + 1, }),
-    //         decrement: (state) => ({...state, count: state.count - 1}),
-    //         reset: (state) => ({...state, count: initialState.count }),
-            
-    //     }
-    // });
-
-    // const store = configureStore({
-    //     reducer: {
-    //         counter: counterSlice.reducer
-    //     }
-    // });
- 
-    // const { increment, decrement, reset, setCount} = counterSlice.actions;
-
     const [messageArray, setMessageArray] = useState(['']);
     const deleteMessage = (index: number) => {
         setMessageArray([...messageArray.slice(0,index), ...messageArray.slice(index+1, messageArray.length)]);
@@ -60,9 +36,7 @@ export const Notify:React.FC<CounterProps> = ({ message,  store$, counterSubject
     
 
     /************************************************************************************ */
-    /**
-     * 
-     */
+
     const [inputValue, setInputValue] = useState('');
     const handleInputChange = (e:any) =>{
         setInputValue(e.target.value);
@@ -84,34 +58,9 @@ export const Notify:React.FC<CounterProps> = ({ message,  store$, counterSubject
     const triggerMessageSubject = () =>{
         if(inputValue !== '') messageHostSubject.next(inputValue);
     }
-    /************************************************************************************ */
-    //STORE
-    // const dispatch = useDispatch();
-    // const [count, setCounter] = useSelector((state:any)=>state.counter.count)
-    //Observable
-    const [count, setCounter] = useState(0);
-
-    const triggerSubject = () =>{
-        counterSubject.next(count);
-        // console.log("React function triggered")
-    }
-
-    const fireEvent = () =>{
-        const event = new CustomEvent('reactBtnClick', {
-            detail: {
-                message: 'React-MFE (State) - Event', 
-                value: count
-            }
-        })
-        window.dispatchEvent(event);
-        
-    }
+    
     /************************************************************************************ */
     useEffect(()=>{
-
-        const subscription =  store$.subscribe( (c:number) => {
-            setCounter(c);
-        });
 
         const handleHostMessageEvent = (msgEvent:any) =>{
             // console.log('react host ',msgEvent);
@@ -138,7 +87,7 @@ export const Notify:React.FC<CounterProps> = ({ message,  store$, counterSubject
         });
 
         return ()=>{
-            subscription.unsubscribe();
+            // subscription.unsubscribe();
             msgSubscription.unsubscribe();
             window.removeEventListener('window:hostMessage', handleHostMessageEvent );
         };
@@ -160,16 +109,7 @@ export const Notify:React.FC<CounterProps> = ({ message,  store$, counterSubject
                 <Counter store={store$} counterSubject={counterSubject}></Counter>
             </Provider>
             </div>
-            <div >
-                <hr/>
-                <h5>Shared state </h5>
-                <span> Counter: { count }</span>
-                <div className="padding">
-                    <h6> Communication </h6>
-                    <button className="huntington-button" onClick={() => {fireEvent()}}>Send State By Windows Event </button>
-                    <button className="huntington-button" disabled onClick={() => {triggerSubject()}}>Send State by Subject</button>
-                </div>
-            </div>
+            
             <hr></hr>
             <div>
                 <h6> Messages</h6>
